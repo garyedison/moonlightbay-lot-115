@@ -1,5 +1,5 @@
-# Moonlight Bay · Lot 115 (canal)
+# Moonlight Bay — Lot 115 (canal bank)
 
-Customer presentation for the canal-bank home. Factory PT211222, 2BR/2BA, 400 sf screened deck looking at the canal.
+Customer presentation for PT211222, 2 bed / 2 bath, 400 sf screened teak deck looking at the canal.
 
-Not the community catalog.
+Live: https://moonlightbay-lot-115.vercel.app

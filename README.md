@@ -1,5 +1,7 @@
-# Moonlight Bay — Lot 115 (canal bank)
+# Lot 115 · Moonlight Bay
 
-Customer presentation for PT211222, 2 bed / 2 bath, 400 sf screened teak deck looking at the canal. Seven factory SKUs on this lot.
+Customer presentation for Lot 115 at Moonlight Bay de Consejo, Belize.
 
-Live: https://moonlightbay-lot115.vercel.app
+Cedar spiral-deck container (customer look) beside the previous hip-roof bungalow. Live BOQ — add or take away the landed shell, civil/MEP, site work, assembly, and FF&E. Furnished includes a 20 ft container DDP to the Moonlight Bay gate ($12,000).
+
+Live: https://moonlightbay-lot115.vercel.app/

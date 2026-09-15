@@ -5,7 +5,7 @@ const GROUPS = [
   { id: "landed", title: "Landed shell", blurb: "The house, ocean freight, and Belize inland." },
   { id: "civil", title: "Civil and MEP", blurb: "Slab, excavation, electrical, plumbing, ties, crane, contingency." },
   { id: "site", title: "On the lot", blurb: "Deck, roof, rail, fence — take any of these off." },
-  { id: "labor", title: "Assembly", blurb: "Belize crew to set and finish the shell." },
+  { id: "labor", title: "Assembly", blurb: "First four homes: 2 Chinese fly-in plus 2 Belize helpers. After training, Belize-only is cheaper." },
   { id: "ffe", title: "FF&E", blurb: "Furniture by room, plus a 20 ft container DDP to the Moonlight Bay gate." },
 ];
 
@@ -30,6 +30,32 @@ function baths(two) {
         { id: "bath2", g: "ffe", label: "Bath 2", amount: 320 },
       ]
     : [{ id: "bath1", g: "ffe", label: "Bath 1", amount: 320 }];
+}
+
+function crew(later) {
+  return [
+    {
+      id: "crew-cn",
+      g: "labor",
+      label: "Chinese skilled crew · 2 workers, fly-in",
+      amount: 7200,
+      hint: "Tickets, hotel, food, salary. Factory net. Share of a four-home run: 115, 127, two gate spec houses.",
+    },
+    {
+      id: "crew-bz",
+      g: "labor",
+      label: "Belize helpers · 2 workers",
+      amount: 2240,
+      hint: "7–10 days per two homes at $280/day.",
+    },
+    {
+      id: "labor-later",
+      g: "labor",
+      label: "Later Belize-only assembly (after training)",
+      amount: later,
+      hint: "Off on the first four homes.",
+    },
+  ];
 }
 
 function ffeTail(extra) {
@@ -62,7 +88,7 @@ const STYLES = {
       { id: "roof", g: "site", label: "Roof-deck structure", amount: 8500 },
       { id: "rail", g: "site", label: "Cable rail", amount: 4800 },
       { id: "fence", g: "site", label: "Wood fence", amount: 7200 },
-      { id: "labor", g: "labor", label: "Assembly labor · 13 days", amount: 5460 },
+      ...crew(5460),
       ...kitL,
       ...baths(true),
       { id: "deckffe", g: "ffe", label: "Open 400 sf deck furniture", amount: 3215 },
@@ -85,7 +111,7 @@ const STYLES = {
       { id: "screen", g: "site", label: "Mosquito screen walls and roof", amount: 9500 },
       { id: "rail", g: "site", label: "Deck rail", amount: 3200 },
       { id: "fence", g: "site", label: "Wood fence", amount: 7200 },
-      { id: "labor", g: "labor", label: "Assembly labor · 8 days", amount: 3360 },
+      ...crew(3360),
       ...kitL,
       ...baths(true),
       { id: "deckffe", g: "ffe", label: "Screened 400 sf deck furniture", amount: 3215 },
@@ -107,7 +133,7 @@ const STYLES = {
       { id: "screen", g: "site", label: "Mosquito screen walls and roof", amount: 9500 },
       { id: "rail", g: "site", label: "Deck rail", amount: 3200 },
       { id: "fence", g: "site", label: "Wood fence", amount: 7200 },
-      { id: "labor", g: "labor", label: "Assembly labor · 12 days", amount: 5040 },
+      ...crew(5040),
       ...kitL,
       ...baths(true),
       { id: "deckffe", g: "ffe", label: "Screened 400 sf deck furniture", amount: 3215 },
@@ -129,7 +155,7 @@ const STYLES = {
       { id: "screen", g: "site", label: "Mosquito screen walls and roof", amount: 9500 },
       { id: "rail", g: "site", label: "Deck rail", amount: 3200 },
       { id: "fence", g: "site", label: "Wood fence", amount: 7200 },
-      { id: "labor", g: "labor", label: "Assembly labor · 9 days", amount: 3780 },
+      ...crew(3780),
       ...kitL,
       ...baths(false),
       { id: "deckffe", g: "ffe", label: "Screened 400 sf deck furniture", amount: 3215 },
@@ -151,8 +177,8 @@ function lines() {
 function applyPreset(id) {
   preset = id;
   const p = PRESETS.find((x) => x.id === id);
-  if (!p.keep) on = new Set(lines().map((l) => l.id));
-  else on = new Set(lines().filter((l) => p.keep.includes(l.g)).map((l) => l.id));
+  if (!p.keep) on = new Set(lines().map((l) => l.id).filter((id) => id !== "labor-later"));
+  else on = new Set(lines().filter((l) => p.keep.includes(l.g) && l.id !== "labor-later").map((l) => l.id));
   render();
 }
 

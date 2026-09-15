@@ -5,7 +5,7 @@ const GROUPS = [
   { id: "landed", title: "Landed shell", blurb: "The house, ocean freight, and Belize inland." },
   { id: "civil", title: "Civil and MEP", blurb: "Slab, excavation, electrical, plumbing, ties, crane, contingency." },
   { id: "site", title: "On the lot", blurb: "Deck, roof, rail, fence — take any of these off." },
-  { id: "labor", title: "Assembly", blurb: "First four homes: 2 Chinese fly-in plus 2 Belize helpers. After training, Belize-only is cheaper." },
+  { id: "labor", title: "Assembly", blurb: "4 workers · $9,440 all-in for this house." },
   { id: "ffe", title: "FF&E", blurb: "Furniture by room, plus a 20 ft container DDP to the Moonlight Bay gate." },
 ];
 
